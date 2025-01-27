@@ -1,0 +1,374 @@
+:root {
+  font-family: 'Merienda One', cursive;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(248, 248, 248, 0.87);
+  background-color: #0a0a0ae5;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1.2rem;
+  text-align: center;
+}
+
+
+.App {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; 
+}
+
+.App header {
+  display: flex;
+  place-items: center;
+ 
+}
+
+.branding {
+  display: flex;
+  gap: 1.5rem;
+  place-items: center;
+  margin: 10px auto; 
+}
+
+ .logo {
+  display: flex;
+  margin-top: -450px;
+margin-left: -650px;
+ padding:20px;
+color:white;
+  border-radius: 50%;
+  
+
+
+
+}
+
+.branding .title {
+  font-size: 2rem;
+  line-height: 1.1;
+  white-space: nowrap;
+  color: #242424;
+  transform: rotate(-2deg);
+}
+
+.branding .title span {
+  color: rgba(255, 255, 255, 0.87);
+  display: inline-block;
+  transform: rotate(-15deg);
+  text-shadow: 0 0 1rem rgba(109, 109, 109, 0.815);
+  margin-top: -20px;
+}
+ .branding .title span:nth-child(2) {
+  writing-mode: tb;
+}
+ .branding .title span:nth-child(3) {
+  transform: rotate(30deg);
+}
+.App .branding .title span::first-letter {
+  text-transform: uppercase;
+  font-weight: 800;
+  color: aquamarine;
+}
+
+.Home p {
+
+ margin-top: -80px; 
+ padding: 20px;
+}
+.App .board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  max-width: 600px;
+  gap: 1.5rem; /* Increased gap for better spacing */
+  background-color: #242424;
+}
+
+.App .board .tile {
+margin-top: -20px;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.87);
+  border-radius: .5rem;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #1a1a1a;
+  box-shadow: 0 0 0.4rem .2rem aquamarine;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3.5rem;
+  line-height: 1;
+  text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+  transition: border-color 0.25s;
+}
+
+.App .board .tile:hover {
+  border-color: #1a1a1a;
+}
+
+.App .board .tile.is-hl {
+  color: #1a1a1a;
+  border-color: #1a1a1a;
+  background-color: aquamarine;
+}
+
+footer {
+  display: flex;
+  place-items: center;
+  justify-content: space-between; /* This will place items on opposite ends */
+  width: 100%;
+}
+
+.score {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.score p {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+.score p:first-child {
+  color: #3498db; /* Blue for X */
+  font-size: 1.6rem;
+  margin-left: -180px;
+}
+
+.score p:last-child {
+  color: #e74c3c; /* Red for O */
+  font-size: 1.6rem;
+  margin-right: -180px;
+}
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.App .reset-btn {
+  padding: 12px 25px;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  transition: 0.5s;
+  background: #1e1e1e;
+  cursor: pointer;
+  color: aquamarine;
+  box-shadow: 0 0 10px #363636, inset 0 0 10px #363636;
+  margin-top: 20px;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+}
+
+.modal-content {
+  background-color: rgb(0, 0, 0);
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 80px;
+  right: 10px;
+  font-size: 10px;
+  cursor: pointer;
+  color: rgb(209, 0, 0);
+}
+
+/* Dark Mode and Light Mode Toggle Styles */
+.dark-mode {
+  --bg-color: #242424;
+  --text-color: #fff;
+  --button-bg: #1a1a1a;
+  --button-hover: #333;
+}
+
+.light-mode {
+  --bg-color: #ffffff;
+  --text-color: #000;
+  --button-bg: #fff;
+  --button-hover: #ddd;
+}
+
+/* Apply variables to body */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Button Styles for mode toggler */
+.mode-toggle-btn {
+  background: var(--button-bg);
+  color: var(--text-color);
+  padding: 10px;
+  border: 2px solid var(--text-color);
+  border-radius: 5px;
+  transition: 0.25s;
+}
+
+.mode-toggle-btn:hover {
+  background: var(--button-hover);
+}
+.App footer {
+  display: flex;
+  place-items: center;
+  margin-top: -30px;
+
+}
+
+.App footer button {
+  padding: 7px 12px;
+  background: #1a1a1a;
+  border: 2px solid rgba(255, 255, 255, 0.87);
+  color: rgba(255, 255, 255, 0.87);
+  width: 128px;
+  border-radius: 5px;
+  transition: 0.25s color, 0.25s background;
+  font-weight: bold;
+}
+
+.App footer button:hover {
+  background: rgba(255, 255, 255, 0.87);
+  color: #1a1a1a;
+;
+}
+
+
+
+
+.App footer p {
+  margin: 0 auto;
+  font-size: 1.2rem; 
+}
+
+.App footer p span {
+  display: inline-block;
+  color: #1a1a1a;
+  border: 2px solid #1a1a1a;
+  border-radius: 50%;
+  background-color: aquamarine;
+  padding: 8px 12px; 
+}
+
+.reset-btn{
+  padding: 8px 15px;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  transition: 0.5s;
+  background: #1e1e1e;
+  cursor: pointer;
+  color:aquamarine;
+  box-shadow: 0 0 10px #363636, inset 0 0 10px #363636;
+}
+
+
+@media (min-width: 470px) {
+  #root {
+    padding: 2rem;
+  }
+
+  .App {
+    gap: 2.5rem;
+  }
+
+  .App .branding .logo {
+    height: 96px;
+  }
+
+  .App .branding .title {
+    font-size: 2rem;
+  }
+
+  .App .board .tile {
+    min-width: 128px;
+    font-size: 5rem;
+  }
+
+  .App footer p {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .App .board .tile {
+    min-width: 152px;
+    font-size: 5.5rem;
+  }
+}
+
+/*
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+}
+*/
